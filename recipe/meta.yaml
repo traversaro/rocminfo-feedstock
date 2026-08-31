@@ -1,16 +1,16 @@
 {% set name = "rocminfo" %}
-{% set version = "6.3.3" %}
+{% set version = "7.2.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/RadeonOpenCompute/rocminfo/archive/rocm-{{ version }}.tar.gz
-  sha256: 08390b2babe6dc832887098c5d3a5253d655430a18751f3446a56c7422b26dd2
+  url: https://github.com/ROCm/rocm-systems/releases/download/rocm-{{ version }}/rocminfo.tar.gz
+  sha256: 6f3235bea6b8e92460de66a7f40366d17e20ae36693324eccd3eb3fa4e75cc98
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not linux]
 
 requirements:
@@ -22,6 +22,7 @@ requirements:
     - make
   host:
     - numactl
+    - rocm-core {{ version }}
     - rocr-runtime {{ version }}
   run:
     - rocr-runtime {{ version }}
@@ -45,3 +46,5 @@ extra:
   recipe-maintainers:
     - isuruf
     - zklaus
+    - conda-forge/rocm-core
+ 
