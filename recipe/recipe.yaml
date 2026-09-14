@@ -25,10 +25,10 @@ requirements:
     - make
   host:
     - numactl
-    - rocm-core ${{ version }}
-    - rocr-runtime ${{ version }}
+    - rocm-core ${{ version }}.*
+    - rocr-runtime ${{ version }}.*
   run:
-    - rocr-runtime ${{ version }}
+    - rocr-runtime ${{ version }}.*
     - libnuma
 
 tests:
