@@ -36,6 +36,8 @@ tests:
       bin:
         - rocminfo
         - rocm_agent_enumerator
+  - script:
+      file: run_test.sh
 
 
 about:
