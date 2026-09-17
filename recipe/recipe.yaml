@@ -25,11 +25,14 @@ requirements:
     - make
   host:
     - numactl
+    # rocm-core is a host dependency due as convention, see
+    # https://github.com/conda-forge/rocm-core-feedstock/issues/21
     - rocm-core ${{ version }}.*
     - rocr-runtime ${{ version }}.*
   run:
     - rocr-runtime ${{ version }}.*
-    - libnuma
+    # rocm_agent_enumerator is a Python script
+    - python
 
 tests:
   - package_contents:
